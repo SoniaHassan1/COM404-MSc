@@ -1,0 +1,11 @@
+# calculaing bmi
+print("what is your name human?")
+name=input()
+print("how old are you(in years)?")
+age=input()
+print("what is your height (in meters)")
+height=float(input())
+print("how much do you weigh(in kilograms)")
+weight=float(input())
+bmi=weight/(height*height)
+print(name,"you are",age,"and your bmi is",bmi)

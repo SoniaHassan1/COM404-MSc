@@ -1,0 +1,6 @@
+print("enter the symbol for eyes")
+eyes=input()
+print("##########")
+print("# ",eyes,"",eyes," #")
+print("#  ----  #")
+print("##########")

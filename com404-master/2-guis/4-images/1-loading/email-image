@@ -1,0 +1,87 @@
+
+from tkinter import *
+from tkinter import messagebox
+
+
+
+class Gui(Tk):
+    def __init__(self):
+        super().__init__()
+
+        # load resources
+        self.bike_image = PhotoImage(file="bike.gif")
+
+
+        # window layout
+        self.title("Newsletter")
+        self.configure(height=900,
+                       width=900)
+
+        # add components
+        self.add_heading_label()
+        self.add_instruction_label()
+        self.add_email_frame()
+        self.add_email_label()
+        self.add_email_entry()
+        self.add_bike_image_label()
+        self.add_subscribe_button()
+        
+
+        #create
+    def add_heading_label(self):
+        self.heading_label = Label()
+        self.heading_label.grid(row=0, column=0, columnspan=3)
+        self.heading_label.configure(font = "Arial 24",
+                                         text="RECIEVE OUR NEWSLETTER")
+
+    def add_instruction_label(self):
+        self.instruction_label = Label()
+        self.instruction_label.grid(row=1, column=0, columnspan=3)
+        self.instruction_label.configure(font = "Arial 18",
+                                         text = "Please enter your email below to recieve our newsletter")
+
+    def add_email_label(self):
+        self.email_label = Label(self.email_frame)
+        self.email_label.grid(row=2, column=0)
+        self.email_label.configure(text = "Email")
+
+    def add_email_frame(self):
+        self.email_frame = Frame()
+        self.email_frame.grid(row=2, column=1)
+
+    def add_email_entry(self):
+        self.email_entry = Entry(self.email_frame)
+        self.email_entry.grid(row=2, column=1)
+        self.email_entry.configure( text = "#f00",
+                                    width=30)
+
+    def add_bike_image_label(self):
+        self.bike_image_label = Label()
+        self.bike_image_label.grid(row=2, column=2)
+        self.bike_image_label.configure(image=self.bike_image,
+                                        height=3,
+                                        width=3, padx=10, pady=10)
+
+
+    def add_subscribe_button(self):
+        self.subscribe_button = Button()
+        self.subscribe_button.grid(row=3, column=0, columnspan=3)
+        self.subscribe_button.configure(bg = "#fee",
+                                        text = "Subscribe",
+                                        height=1,
+                                        width=50)
+
+    # bind events
+        self.subscribe_button.bind( "<ButtonRelease-1>", self.subscribe_button_clicked)
+
+    def subscribe_button_clicked(self,event):
+        messagebox.showinfo("Newsletter", "Subscribed")
+
+        
+
+        
+
+# the object
+if __name__ == "__main__":
+    gui = Gui()
+    gui.mainloop()

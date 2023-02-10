@@ -1,0 +1,11 @@
+# calculating healh of beep
+print("please enter no of lives:")
+lives=int(input())
+print("please enter energy level:")
+energy=int(input())
+print("please enter shield level:")
+shield=int(input())
+print("health has been set")
+print("lives",lives*"♥")
+print("energy",energy*"▼")
+print("shield",shield*"▼")

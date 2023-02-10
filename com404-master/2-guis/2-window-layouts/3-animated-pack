@@ -1,0 +1,61 @@
+
+from tkinter import *
+import time
+
+# the class
+class AnimatedGui(Tk):
+    def __init__(self):
+        super().__init__()
+
+        # load resources
+        self.right_pounds_image = PhotoImage(file="ball.gif")
+        self.left_euros_image = PhotoImage(file="bike.gif")
+        
+
+        # set window attributes
+        self.title("Gui")
+        self.configure(height=500,
+                       width=500)
+
+        # set animation attributes
+        self.person_x_pos = 10
+        self.person_y_pos = 100
+        self.person_x_change = 5
+
+        # add components
+        self.add_animation_frame()
+        self.add_person_image_label()
+
+
+        # start the timer
+        self.tick()
+
+        # the timer tick function
+    def tick(self):
+        self.person_x_pos += self.person_x_change
+        self.person_image_label.place(x=self.person_x_pos, y=self.person_y_pos)
+
+        if (self.person_x_pos >= 250):
+            self.person_x_change *= -1
+            self.person_image_label.configure(image=self.left_euros_image)
+            
+        self.after(100, self.tick)
+
+        # the person image
+
+    def add_animation_frame(self):
+        self.animation_frame = Frame()
+        self.animation_frame.pack()
+        self.animation_frame.configure(width=500,height=500)
+
+    def add_person_image_label(self):
+        self.person_image_label = Label(self.animation_frame)
+        self.person_image_label.place(x=10, y=100)
+        self.person_image_label.configure(image=self.right_pounds_image)
+         
+
+# the object
+if __name__ == "__main__":
+    gui = AnimatedGui()
+    gui.mainloop()
+

@@ -1,0 +1,68 @@
+from tkinter import *
+
+class Gui(Tk):
+
+    def __init__(self):
+        super().__init__()
+
+        # set window attributes
+        self.title("My Gui")
+        self.configure(bg="#eee",
+                       height=900,
+                       width=900)
+
+        # add components
+        self.add_heading_label()
+        self.add_instruction_label()
+        self.add_ticket_frame()
+        self.add_ticket_entry()
+        self.add_buy_button()
+        
+        
+
+        
+    def add_heading_label(self):
+        # create
+        self.heading_label = Label()
+        self.heading_label.pack()
+        # style
+        self.heading_label.configure(font="Arial 18",
+                                     text="Entrance Ticket")
+        
+        # events
+
+    def add_instruction_label(self):
+        self.instruction_label = Label()
+        self.instruction_label.pack()
+        self.instruction_label.configure( font="Arial 14",
+                                          text= "How many tickets are needed?")
+    def add_ticket_frame(self):
+        self.ticket_frame = Frame()
+        self.ticket_frame.pack()
+
+        
+    def add_ticket_entry(self):
+        self.ticket_entry = Entry(self.ticket_frame)
+        self.ticket_entry.pack(side=RIGHT)
+
+    def add_buy_button(self):
+        self.buy_button = Button()
+        self.buy_button.pack()
+        self.buy_button.configure(font="Arial 14" ,
+                                  text= "Buy",
+                                  height=1 ,
+                                  width=8)
+
+        #bind_events
+        self.buy_button.bind("<ButtonRelease-1>", self.buy_button_clicked )
+
+    def buy_button_clicked(self, event):
+               num_tickets = self.ticket_entry.get()
+               messagebox.showinfo("Gui","You have purchased " +num_tickets +  " tickets!")
+                             
+                             
+        
+    
+        
+    
+

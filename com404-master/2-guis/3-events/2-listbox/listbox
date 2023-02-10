@@ -1,0 +1,71 @@
+from tkinter import *
+
+class Gui(Tk):
+
+    def __init__(self):
+        super().__init__()
+
+        # set window attributes
+        self.title("My Gui")
+        self.configure(bg="#eee",
+                       height=900,
+                       width=900)
+
+        # add components
+        self.add_heading_label()
+        self.add_instruction_label()
+        self.add_lyric_frame()
+        self.add_lyric_entry()
+        self.add_add_button()
+        self.add_new_label()
+        
+        
+        
+
+        
+    def add_heading_label(self):
+        # create
+        self.heading_label = Label()
+        self.heading_label.pack(fill=X)
+        # style
+        self.heading_label.configure(font="Arial 18",
+                                     text="Song Maker")
+        
+        # events
+
+    def add_instruction_label(self):
+        self.instruction_label = Label()
+        self.instruction_label.pack(fill=X)
+        self.instruction_label.configure(anchor="w",
+                                         font="Arial 14",
+                                         text= "Lyric to add:")
+
+    def add_lyric_frame(self):
+        self.lyric_frame = Frame()
+        self.lyric_frame.pack(fill=X) 
+
+        
+
+        
+    def add_lyric_entry(self):
+        self.lyric_entry = Entry(self.lyric_frame)
+        self.lyric_entry.pack(side=LEFT)
+
+    def add_add_button(self):
+        self.add_button = Button(self.lyric_frame)
+        self.add_button.pack(side=RIGHT)
+        self.add_button.configure(font="Arial 14" ,
+                                  text= "Add",
+                                  height=1 ,
+                                  width=5)
+
+    def add_new_label(self):
+        self.new_label = Label()
+        self.new_label.pack(side=LEFT)
+        self.new_label.configure( font="Arial 14",
+                                          text= "Lyrics:")
+
+        
+                             
+                             
+        
